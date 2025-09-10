@@ -1,0 +1,1 @@
+{"version":3,"file":"sftp.js","sourceRoot":"","sources":["../../src/ult/sftp.ts"],"names":[],"mappings":";;;AAAA,OAAO,CAAC,QAAQ,CAAC,CAAC,MAAM,EAAE,CAAA;AAEb,QAAA,UAAU,GAAG;IACtB,IAAI,EAAE,cAAc;IACpB,QAAQ,EAAE,SAAS;IACnB,QAAQ,EAAE,OAAO,CAAC,GAAG,CAAC,aAAa;IACnC,IAAI,EAAE,EAAE;CACX,CAAC"}
