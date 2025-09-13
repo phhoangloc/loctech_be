@@ -14,7 +14,8 @@ export class BlogRepository {
                         contains: query.search ? query.search : undefined,
                     },
                     slug: query.slug ? query.slug : undefined,
-                    hostId: query.hostId ? Number(query.hostId) : undefined
+                    hostId: query.hostId ? Number(query.hostId) : undefined,
+                    category: query.category ? { name: query.category } : undefined
                 },
                 include: {
                     host: {
@@ -68,7 +69,6 @@ export class BlogRepository {
     async createBlog(body: any) {
         try {
             const result = await prisma.blog.create({ data: body })
-            console.log(result)
             return result
         } catch (error) {
             throw error

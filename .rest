@@ -15,8 +15,7 @@ Content-Type: application/json
     "password":"031090Ph@"
 }
 ###
-GET http://localhost:4000/api/blog
-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU3Mjk1NDIwLCJleHAiOjE3NTczODE4MjB9.hWhmhXgL-y9vunZfELbPe9uzHzryHkYLcTodx1vNM6I;
+GET http://localhost:4000/api/alert
 
 ####
 PUT   http://localhost:4000/api/admin/page/1

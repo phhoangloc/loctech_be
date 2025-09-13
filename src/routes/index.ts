@@ -24,6 +24,7 @@ export const route = (app: Express) => {
     app.get("/api/blog", blogController.findBlog)
     app.get("/api/blog/:id", blogController.findOneBlog)
     app.get("/api/category", categoryController.findCategory)
+    app.get("/api/alert", controller.getNews)
     app.get("/api/news", newsController.findNews)
     app.get("/api/news/:id", newsController.findOneNews)
     app.use("/api/user", userMiddlewear.checkPosition, UserRoutes)

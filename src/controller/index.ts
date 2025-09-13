@@ -3,6 +3,8 @@ import { IUserService } from "../services/IServices"
 import { saveCookie } from "../ult/cookie"
 import { UserDTO } from "../DTO/user";
 import { ResponseDTO } from "../DTO/response";
+import Parser = require("rss-parser");
+const parser = new Parser()
 interface CustomRequest extends Request {
     id?: number;
 }
@@ -10,6 +12,27 @@ const iUserService = new IUserService()
 
 export class Controller {
 
+    async getNews(req: Request, res: Response) {
+        try {
+            // thay bằng link RSS thực tế của Google Alerts
+            const feed = await parser.parseURL(
+                "https://www.google.co.jp/alerts/feeds/02914769060042923735/1066734219932877081"
+            );
+
+            // chỉ lấy một số field cần thiết
+            const items = feed.items.map((item) => ({
+                title: item.title,
+                link: item.link,
+                pubDate: item.pubDate,
+                content: item.contentSnippet,
+            }));
+
+            res.json(new ResponseDTO(true, items))
+        } catch (error) {
+            console.error(error);
+            res.json(new ResponseDTO(false, "this RSS is not existed"));
+        }
+    }
 
     async createUser(req: Request, res: Response) {
         const body = req.body
